@@ -6,7 +6,8 @@
 
 Crypto Night 1
 ------------------
-1.) SalMac86
+1. SalMac86
 
-2.)
-3) Crystal
+2. Crystal
+
+3. DustyBest
