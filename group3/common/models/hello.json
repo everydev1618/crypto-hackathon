@@ -1,0 +1,22 @@
+{
+  "name": "Hello",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Hello": {
+      "type": "string",
+      "required": true
+    },
+    "Hi": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
