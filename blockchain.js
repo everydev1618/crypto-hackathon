@@ -13,12 +13,11 @@ class Blockchain {
         return this.chain[this.chain.length - 1];
     }
 
-    addBlock(newBlock){
+    addBlock(newData) {
         const previous = this.getLatestBlock();
-        newBlock.previousHash = previous.hash;
-        newBlock.index = previous.index + 1;
-        newBlock.hash = newBlock.calculateHash();
+        let newBlock = new Block(previous.index + 1, Date.now(), newData, previous.hash)
         this.chain.push(newBlock);
+        return this.chain;
     }
 
     isChainValid(){
