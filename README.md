@@ -53,3 +53,25 @@ https://www.everydev.com/1618-registration/
 Get together with a facilitator to get your GitHub account added to the 1618 Hackathon team on the everydev organization.
 
 Once you have added your GitHub account, you should have access to the Crypto Hackathon repo here:
+
+=================
+Cryptocurrency Implementation
+Now that we have a server with a blockchain running, it's time for us to craft our currency.
+This could be tricky! I'd recommend taking more than a few minutes to have some round-table discussion to clarify the requirements and features you want to implement for our currency.
+In the end, it's up to you, but your currency should be using some kind of cryptographic public/private key setup and it should be relatively hard to make bogus transactions.
+It might be helpful to take a look at ERC-20 here
+and keep these concepts in mind as you implement your cryptocurrency:
+
+(1) The system does not require a central authority, distributed achieve consensus on its state.
+(2) The system keeps an overview of cryptocurrency units and their ownership.
+(3) The system defines whether new cryptocurrency units can be created. If new cryptocurrency units can be created, the system defines the circumstances of their origin and how to determine the ownership of these new units.
+(4) Ownership of cryptocurrency units can be proved exclusively cryptographically.
+(5) The system allows transactions to be performed in which ownership of the cryptographic units is changed. A transaction statement can only be issued by an entity proving the current ownership of these units.
+(6) If two different instructions for changing the ownership of the same cryptographic units are simultaneously entered, the system performs at most one of them.
+
+
+Also, this may be a good time to make sure that our blockchain implementation is able to Validate the Integrity of the blocks!
+
+If you are looking for a bit more of challenge - make our blockchain run on multiple nodes, on different machines! (While still staying in sync.)
+
+
