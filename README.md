@@ -12,6 +12,16 @@ Crypto Night 1
 
 3. DustyBest
 
+4. dmlsthe1
+
+5. mtgoodrich
+
+6. shark-bit
+
+7. think3d
+
+8. dlim87
+
 -----------
 The Challenge
 We're building a Cryptocurrency, with a supporting blockchain and a digital wallet. This is a pretty ambitious goal, so let's unpack that a bit. We'll have to:

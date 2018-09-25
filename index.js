@@ -1,9 +1,19 @@
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const Blockchain = require('./blockchain.js');
 const Block = require('./block.js');
 const newBlockchain = new Blockchain();
+var path = require('path');
+
+app.get('/', (req, res) => {
+    res.send(newBlockchain.displayChain());
+})
+
+app.get('/adduser', (req, res) => {
+    res.sendFile(path.join(__dirname + '/index.html'));
+    // {user1: 636363, user2: 12726, transfer: 500}
+})
 
 app.get('/hello', (req, res) => {
     res.send('Hi');
@@ -19,7 +29,12 @@ app.get('/blockchain',(req, res) => {
 })
 
 app.get('/addBlock',(req, res) => {
-    res.send(newBlockchain.addBlock(req.query.data))
+    // verification
+    let successfulBlock = false;
+    // check for validation
+    successfulBlock = newBlockchain.addBlock(req.query.data)
+
+    res.send(successfulBlock);
 })
 
 app.listen(PORT, () => {
