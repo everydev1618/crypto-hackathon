@@ -10,13 +10,13 @@ class Blockchain {
 
     createGenesisBlock() {
         let address = this.createKeys();
-        
+
         let initialLedger = {};
-        
+
         initialLedger[address] = 100;
-        
+
         let genesisData = new Data([], initialLedger);
-        
+
         return new Block(0, Date.now(), genesisData, "0");
     }
 
@@ -78,16 +78,16 @@ class Blockchain {
     displayChain() {
         return JSON.stringify(this.chain, null, 4);
     }
-    
+
     createKeys() {
         var prime_length = 60;
         var diffHell = crypto.createDiffieHellman(prime_length);
-        
+
         diffHell.generateKeys('base64');
-        
-        console.log("Public Key : " ,diffHell.getPublicKey('base64'));
-        console.log("Private Key : " ,diffHell.getPrivateKey('base64'));
-        
+
+        console.log("Public Key : ", diffHell.getPublicKey('base64'));
+        console.log("Private Key : ", diffHell.getPrivateKey('base64'));
+
         return diffHell.getPublicKey('base64');
     }
 }

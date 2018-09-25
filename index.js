@@ -20,7 +20,8 @@ app.get('/blockchain',(req, res) => {
 })
 
 app.get('/sendSingle',(req, res) => {
-    res.send(newBlockchain.send(req.query.to, req.query.from, req.query.amount))
+    newBlockchain.send(req.query.to, req.query.from, req.query.amount)
+    res.send(newBlockchain.displayChain());
 })
 
 app.listen(PORT, () => {
