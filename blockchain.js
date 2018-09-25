@@ -1,12 +1,15 @@
 const Block = require('./block.js');
+const Transaction = require('./transaction');
+const SHA256 = require('crypto-js/SHA256');
 
 class Blockchain {
     constructor(){
         this.chain=[this.createGenesisBlock()];//creates a new chain with a block set by out createGenesisBlock method
     }
 
+
     createGenesisBlock(){
-        return new Block(0, Date.now(), "Genesis block", "0")
+        return new Block(0, Date.now(), [{from: SHA256("mobcoin").toString(), to: SHA256("Andrew").toString(), amount: 25 },{from: SHA256("mobcoin").toString(), to: SHA256("Jairo").toString(), amount: 25}], "0")
     }
 
     getLatestBlock(){
