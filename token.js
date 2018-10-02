@@ -1,5 +1,4 @@
 const Wallet = require('./wallet')
-const crypto = require('crypto-js');
 const uuid = require('uuid/v4');
 
 class Token {
