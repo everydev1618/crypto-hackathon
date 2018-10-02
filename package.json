@@ -11,6 +11,7 @@
   "dependencies": {
     "crypto-js": "^3.1.9-1",
     "express": "^4.16.3",
+    "node-rsa": "^1.0.1",
     "uuid": "^3.3.2"
   }
 }

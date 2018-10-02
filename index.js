@@ -8,6 +8,9 @@ const newBlockchain = new Blockchain();
 const uuid = require('uuid')  //unique id
 const Account = require('./account.js');
 const Transaction = require('./transaction.js');
+const crypto = require('crypto'); // DiffieHellman
+const assert = require('assert');
+
 
 const accounts = [];
 
@@ -36,7 +39,7 @@ app.get('/addBlock',(req, res) => {
 
 
 app.get('/createAccount',(req, res) => {
-    let account = new Account(uuid());
+    let account = new Account();
     accounts.push(account)
     res.send({
         private: account.privateKey,
@@ -62,6 +65,22 @@ app.get('/transaction',(req, res) => {
     //console.log(accounts.find(req.query.to))
 
     res.send('stuff happened')
+})
+
+app.get('/createkey', (req, res) => {
+
+    const alice = crypto.createDiffieHellman(64);
+    const aliceKey = alice.generateKeys('base64');
+    const pubKey = alice.getPublicKey('base64');
+    const privKey = alice.getPrivateKey('base64');
+
+    const Bob = new Account(pubKey, privKey)
+    // console.log(alice)
+
+    console.log('pubkey: ', alice.getPublicKey('base64'))
+    console.log('private key: ', alice.getPrivateKey('base64'))
+    
+    
 })
 
 
