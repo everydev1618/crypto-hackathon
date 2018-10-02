@@ -3,6 +3,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const Blockchain = require('./blockchain.js');
 const Block = require('./block.js');
+const Token = require('./Token');
+const wallet = require('./wallet');
 
 const newBlockchain = new Blockchain();
 
@@ -22,6 +24,10 @@ app.get('/blockchain',(req, res) => {
 app.get('/sendSingle',(req, res) => {
     newBlockchain.send(req.query.to, req.query.from, req.query.amount)
     res.send(newBlockchain.displayChain());
+})
+
+app.get('/token',(req, res) => {
+    res.send(new Token(req.query.name, req.query.sym, req.query.totalSupply))
 })
 
 app.listen(PORT, () => {
