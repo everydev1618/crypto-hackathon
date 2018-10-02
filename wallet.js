@@ -1,5 +1,3 @@
-const crypto = require('crypto-js');
-
 class Wallet {
   constructor (address, amount){
     this.address = address;

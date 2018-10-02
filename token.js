@@ -17,8 +17,6 @@ class Token {
     }
     return arr;
   }
-
-
 }
 
 module.exports = Token;
