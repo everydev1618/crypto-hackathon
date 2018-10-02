@@ -1,7 +1,11 @@
 const Block = require('./block.js');
 const Data = require('./data.js');
 const Transaction = require('./transaction.js');
+const constants = require('constants');
+
+// Crypto 
 const crypto = require('crypto');
+var fs = require('fs');
 
 class Blockchain {
     constructor() {
@@ -80,7 +84,10 @@ class Blockchain {
     }
 
     createKeys() {
+
         var prime_length = 60;
+
+
         var diffHell = crypto.createDiffieHellman(prime_length);
 
         diffHell.generateKeys('base64');
@@ -88,7 +95,25 @@ class Blockchain {
         console.log("Public Key : ", diffHell.getPublicKey('base64'));
         console.log("Private Key : ", diffHell.getPrivateKey('base64'));
 
-        return diffHell.getPublicKey('base64');
+        fs.writeFile('./privateKey.pem', diffHell.getPrivateKey('base64'), 'base64', () => {});
+
+        return diffHell;
+    }
+
+    encryptStringWithRsaPrivateKey(data, privateKey) {
+        const buffer = Buffer.from(data);
+        
+        const encrypted = crypto.privateEncrypt({ key: privateKey, padding: constants.RSA_NO_PADDING }, buffer);
+    
+        return encrypted.toString('base64');
+    }
+
+    decryptStringWithRsaPublicKey(data, publicKey) {
+        const buffer = new Buffer(data, 'base64');
+
+        const decrypted = crypto.publicDecrypt(publicKey, buffer);
+
+        return decrypted;
     }
 }
 

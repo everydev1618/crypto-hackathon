@@ -1,4 +1,4 @@
-const crypto = require('crypto-js');
+const crypto = require('crypto');
 
 class Block {
     constructor(index, timestamp, data, previousHash = '') {
@@ -10,7 +10,9 @@ class Block {
     }
 
     calculateHash() {
-        return crypto.SHA256(this.index + this.previousHash + this.timestamp + JSON.stringify(this.data)).toString();
+        return crypto
+            .createHash('sha256', this.index + this.previousHash + this.timestamp + JSON.stringify(this.data))
+            .toString();
     }
 }
 
