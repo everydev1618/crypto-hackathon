@@ -1,12 +1,18 @@
 const express = require('express');
-const app = express();
+const morgan = require('morgan');
+const path = require('path');
 const PORT = process.env.PORT || 3000;
-const Blockchain = require('./blockchain.js');
-const Block = require('./block.js');
-const Token = require('./Token');
-const wallet = require('./wallet');
+const Blockchain = require('../block-chain/blockchain.js');
+const Block = require('../block-chain/block.js');
+const Token = require('../block-chain/token.js');
 
+const app = express();
 const newBlockchain = new Blockchain();
+
+
+app.use(morgan('dev'));
+app.use(express.static('public'));
+app.use(express.static('dist'));
 
 app.get('/hello', (req, res) => {
     res.send('Hi');
@@ -28,6 +34,10 @@ app.get('/sendSingle',(req, res) => {
 
 app.get('/token',(req, res) => {
     res.send(new Token(req.query.name, req.query.sym, req.query.totalSupply))
+})
+
+app.get('*', (req,res) => {
+    res.sendFile(path.resolve('public', 'index.html'));
 })
 
 app.listen(PORT, () => {
