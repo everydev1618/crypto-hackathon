@@ -32,7 +32,7 @@ app.get('/sendSingle',(req, res) => {
     res.send(newBlockchain.displayChain());
 })
 
-app.get('/token',(req, res) => {
+app.get('/api/token',(req, res) => {
     res.send(new Token(req.query.name, req.query.sym, req.query.totalSupply))
 })
 
