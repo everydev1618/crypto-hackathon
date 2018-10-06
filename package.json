@@ -18,8 +18,11 @@
     "nodemon": "^1.18.4",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
+    "redux-form": "^7.4.2",
+    "redux-promise-middleware": "^5.1.1",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
