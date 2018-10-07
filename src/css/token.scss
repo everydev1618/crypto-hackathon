@@ -10,8 +10,8 @@
   background-color: rgb(220, 220, 220);
   border-radius: 20px;
   padding: 15px;
-  height: 500px;
-  flex: 0 1 550px;  
+  height: 600px;
+  flex: 0 1 600px;  
   text-align: center;
   h2 {
     margin-bottom: 1em;
@@ -54,6 +54,11 @@
     border: 1px solid rgb(121, 121, 121);
     outline: none;
     background: rgb(176, 176, 176)
+  }
+  div{
+    flex: 1 0 230px;
+    text-align: right;
+    color: red;
   }
   .submit-btn {
     border-radius: 8px;

@@ -33,7 +33,7 @@ app.get('/sendSingle',(req, res) => {
 })
 
 app.get('/api/token',(req, res) => {
-    res.send(new Token(req.query.name, req.query.sym, req.query.totalSupply))
+    res.send(new Token(req.query.name, req.query.sym, req.query.totalSupply, req.query.accounts))
 })
 
 app.get('*', (req,res) => {
