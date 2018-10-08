@@ -1,7 +1,14 @@
 import axios from 'axios'
 
-export default function createToken(values) {
-  return axios.get(`/api/token?name=${values.name}&sym=${values.sym}&totalSupply=${values.supply}&accounts=${values.accounts}`).then((res)=> {
-    console.log(res);
-  })
+export const createToken = (values) => {
+  return (dispatch) => {
+    let route = `/api/token?name=${values.name}&sym=${values.sym}&totalSupply=${values.supply}&accounts=${values.accounts}`
+    dispatch({
+      type: 'GET_TOKEN',
+      payload: axios.get(route)
+        .then((res) => {
+          return res
+        })
+    })
+  }
 }

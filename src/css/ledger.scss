@@ -1,0 +1,37 @@
+.table-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center !important;
+  align-content: center;  
+  .ledger {
+    background-color: rgb(220, 220, 220);
+    border-radius: 20px;
+    padding: 15px;
+    height: 600px;
+    flex: 0 1 600px;  
+    text-align: center;
+    .ledger-title{    
+      font-size: 50px;
+      margin-bottom: 1em;
+    }
+    .ledger-sym {
+      text-transform: uppercase;
+      font-size: 40px;
+      margin-bottom: .5em;
+    }
+    table {
+      width: 500px;
+      line-height: 2;
+      font-size:22px;
+      .th {
+        text-transform: uppercase;
+        font-weight: 400;
+        border-bottom: solid darkgray 2px;
+      }
+      .th-acc {
+        text-align: left;
+      }
+    }
+  }
+}
