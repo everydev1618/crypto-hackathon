@@ -75,3 +75,43 @@ Also, this may be a good time to make sure that our blockchain implementation is
 If you are looking for a bit more of challenge - make our blockchain run on multiple nodes, on different machines! (While still staying in sync.)
 
 
+====
+mkdir ~/naiveStuff
+
+cd ~/naiveStuff
+
+git clone https://github.com/lhartikk/naivecoin.git
+
+cd naivecoin
+
+git checkout chapter6
+
+npm install
+
+npm start
+
+===== new shell
+
+cd <path to where you made>/naiveStuff
+
+git clone https://github.com/lhartikk/naivecoin-ui.git
+
+cd naivecoin-ui/naivecoin-wallet
+
+npm install
+
+npm start
+
+localhost:8081
+
+===== new shell
+
+cd <path to where you made>/naiveStuff
+
+cd naivecoin-explorer
+
+npm install
+
+npm start
+
+localhost:<it will tell you>
